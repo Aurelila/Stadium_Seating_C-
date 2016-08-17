@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Stadium_Seating
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void calculateRevenueButton_Click(object sender, EventArgs e)
+        {
+            // Declaring ticket totals
+            decimal classATickets;
+            decimal classBTickets;
+            decimal classCTickets;
+            classATickets = decimal.Parse(classATextBox.Text);
+            classBTickets = decimal.Parse(classBTextBox.Text);
+            classCTickets = decimal.Parse(classCTextBox.Text);
+
+
+
+            // Storing the numbers/cost of each ticket
+            decimal classACost = 15;
+            decimal classBCost = 12;
+            decimal classCCost = 9;
+
+            // Calculate each tickets cost.
+            decimal classATotal;
+            decimal classBTotal;
+            decimal classCTotal;
+            classATotal = classATickets * classACost;
+            classBTotal = classBTickets * classBCost;
+            classCTotal = classCTickets * classCCost;
+            revATextBox.Text = classATotal.ToString("c");
+            revBTextBox.Text = classBTotal.ToString("c");
+            revCTextBox.Text = classCTotal.ToString("c");
+
+            // Calculate total tickets bought.
+            decimal totalsales;
+            totalsales = (classATotal + classBTotal + classCTotal);
+            
+
+            // Display the total cost of tickets bought.
+            totalTextBox.Text = totalsales.ToString("c");
+
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            classATextBox.Text = " ";
+            classBTextBox.Text = " ";
+            classCTextBox.Text = " ";
+            revATextBox.Text = " ";
+            revBTextBox.Text = " ";
+            revCTextBox.Text = " ";
+            totalTextBox.Text = " ";
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        
+    }
+}
